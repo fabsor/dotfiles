@@ -1,8 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d")
-(require 'drupal-mode)
-(require 'revive)
 
-(load "revive")
+(require 'drupal-mode)
 (load "drupal-mode")
 
 (autoload 'geben "geben" "Xdebug FTW" t)
@@ -18,3 +16,13 @@
 (add-to-list 'auto-mode-alist '("\\.engine$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
 (add-to-list 'auto-mode-alist '("\\.make" . conf-windows-mode))
+
+(setq inhibit-startup-message t)
+(setq inhibit-startup-screen t)
+(setq inhibit-splash-screen t)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(setq line-number-mode t)
+(setq column-number-mode t)
