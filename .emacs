@@ -1,12 +1,17 @@
 (add-to-list 'load-path "~/.emacs.d")
 
 (require 'drupal-mode)
+(require 'flymake)
+(require 'php-mode)
+
 (load "drupal-mode")
 
 (autoload 'geben "geben" "Xdebug FTW" t)
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(autoload 'php-mode-map "php-mode" "mode" t)
 (autoload 'conf-windows-mode "conf-windows-mode" "Mode for info files." t)
 
+;; Some nice mappings.
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.module$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.test$" . drupal-mode))
@@ -26,3 +31,16 @@
 
 (setq line-number-mode t)
 (setq column-number-mode t)
+
+;; Nice refresh feature.
+(defun refresh-file ()
+  (interactive)
+  (revert-buffer t t t))
+
+(global-set-key [f5] 'refresh-file)
+
+;; Add PHP syntax checking.
+(add-hook 'php-mode-hook (lambda() (flymake-mode 1)))
+(define-key php-mode-map '[M-S-up] 'flymake-goto-prev-error)
+(define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)
+
