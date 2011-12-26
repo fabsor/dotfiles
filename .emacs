@@ -46,3 +46,13 @@
 (define-key php-mode-map '[M-S-up] 'flymake-goto-prev-error)
 (define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)
 
+;; Autocomplete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/fabsor/.emacs.d/ac-dict")
+(ac-config-default)
+
+(add-hook 'php-mode-hook
+(lambda ()             
+ (require 'php-completion)
+ (php-completion-mode t)
+ (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)))
