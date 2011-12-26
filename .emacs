@@ -3,12 +3,13 @@
 (require 'drupal-mode)
 (require 'flymake)
 (require 'php-mode)
+(require 'w3m-load)
+(require 'geben)
 
 (load "drupal-mode")
 
 (autoload 'geben "geben" "Xdebug FTW" t)
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
-(autoload 'php-mode-map "php-mode" "mode" t)
 (autoload 'conf-windows-mode "conf-windows-mode" "Mode for info files." t)
 
 ;; Some nice mappings.
@@ -41,6 +42,7 @@
 
 ;; Add PHP syntax checking.
 (add-hook 'php-mode-hook (lambda() (flymake-mode 1)))
+(add-hook 'drupal-mode-hook (lambda() (flymake-mode 1)))
 (define-key php-mode-map '[M-S-up] 'flymake-goto-prev-error)
 (define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)
 
