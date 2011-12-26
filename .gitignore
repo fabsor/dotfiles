@@ -1,0 +1,15 @@
+*
+!.bash_aliases
+!.emacs
+!.emacs-includes
+!.emacs-includes/*
+!.emacs.d
+!.emacs.d/*
+!.gitconfig
+!.gitignore
+!foo
+!bin
+!bin/*
+!bin/z
+!bin/z/*
+.patch
