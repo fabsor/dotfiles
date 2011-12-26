@@ -1,0 +1,11 @@
+#!/bin/bash
+alias dev="cd ~/projects/nodeone-dev/platforms; cd $1"
+alias srv-www="cd /srv/www"
+alias hosts="emacs /etc/hosts"
+alias hosts-append="echo \"\n$1\t$2\" >> sudo /etc/hosts"
+alias hosts-dev="echo \"\n33.33.33.10\t$2\" >> sudo /etc/hosts"
+alias hosts-olddev="echo \"\n192.168.56.10\t$2\" >> sudo /etc/hosts"
+alias makedistro="drush make --no-core --contrib-destination=. --working-copy"
+alias hosts="emacs /etc/hosts"
+alias gitdrupal="echo /test/${1}.git"
+alias drupalcs="phpcs --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme,css"
