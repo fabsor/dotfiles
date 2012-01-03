@@ -1,12 +1,18 @@
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/jade-mode")
 
 (require 'drupal-mode)
 (require 'flymake)
+(require 'flymake-cursor)
 (require 'php-mode)
 (require 'w3m-load)
 (require 'geben)
+(require 'node-mode)
+(require 'sws-mode)
+(require 'jade-mode)    
 
 (load "drupal-mode")
+(load "node-mode")
 
 (autoload 'geben "geben" "Xdebug FTW" t)
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
@@ -22,6 +28,8 @@
 (add-to-list 'auto-mode-alist '("\\.engine$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
 (add-to-list 'auto-mode-alist '("\\.make" . conf-windows-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+(add-to-list 'auto-mode-alist '("\\.js" . node-mode))
 
 (setq inhibit-startup-message t)
 (setq inhibit-startup-screen t)
@@ -30,6 +38,10 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+;; Use spaces by default.
+(setq indent-tabs-mode nil)
+
+;; Show line and column number.
 (setq line-number-mode t)
 (setq column-number-mode t)
 
@@ -52,7 +64,7 @@
 (ac-config-default)
 
 (add-hook 'php-mode-hook
-(lambda ()             
+(lambda ()
  (require 'php-completion)
  (php-completion-mode t)
  (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)))
