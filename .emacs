@@ -1,10 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/jade-mode")
 
-(require 'drupal-mode)
 (require 'flymake)
 (require 'flymake-cursor)
 (require 'php-mode)
+(require 'drupal-mode)
 (require 'w3m-load)
 (require 'geben)
 (require 'node-mode)
@@ -59,12 +59,12 @@
 (define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)
 
 ;; Autocomplete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/home/fabsor/.emacs.d/ac-dict")
-(ac-config-default)
+;(require 'auto-complete-config)
+;(add-to-list 'ac-dictionary-directories "/home/fabsor/.emacs.d/ac-dict")
+;(ac-config-default)
 
-(add-hook 'php-mode-hook
-(lambda ()
- (require 'php-completion)
- (php-completion-mode t)
- (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)))
+;(add-hook 'php-mode-hook
+;(lambda ()
+; (require 'php-completion)
+; (php-completion-mode t)
+; (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)))
