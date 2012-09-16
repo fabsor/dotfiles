@@ -1,19 +1,19 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/jade-mode")
 
-(require 'flymake)
-(require 'flymake-cursor)
 (require 'php-mode)
-(require 'drupal-mode)
 (require 'w3m-load)
 (require 'geben)
 (require 'node-mode)
 (require 'sws-mode)
-(require 'jade-mode)    
+(require 'jade-mode)
+(require 'flymake)
+(require 'flymake-cursor)
+(require 'drupal-mode)
+(require 'markdown-mode)
 
-(load "drupal-mode")
 (load "node-mode")
-
+(load "drupal-mode")
 (autoload 'geben "geben" "Xdebug FTW" t)
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
 (autoload 'conf-windows-mode "conf-windows-mode" "Mode for info files." t)
@@ -30,6 +30,15 @@
 (add-to-list 'auto-mode-alist '("\\.make" . conf-windows-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 (add-to-list 'auto-mode-alist '("\\.js" . node-mode))
+(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
+
+;; Drupal-type extensions
+(add-to-list 'flymake-allowed-file-name-masks '("\\.module$" flymake-php-init))
+(add-to-list 'flymake-allowed-file-name-masks '("\\.install$" flymake-php-init))
+(add-to-list 'flymake-allowed-file-name-masks '("\\.test$" flymake-php-init))
+(add-to-list 'flymake-allowed-file-name-masks '("\\.inc$" flymake-php-init))
+(add-to-list 'flymake-allowed-file-name-masks '("\\.engine$" flymake-php-init))
 
 (setq inhibit-startup-message t)
 (setq inhibit-startup-screen t)
