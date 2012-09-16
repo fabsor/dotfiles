@@ -102,8 +102,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source /opt/vnodectrl.d/completion.sh
-source ~/bin/z/z.sh
+if [ -f /opt/vnodectrl.d/completion.sh ]; then
+    source /opt/vnodectrl.d/completion.sh
+fi
+if [ -f ~/bin/z/z.sh ]; then
+    source ~/bin/z/z.sh
+fi
 
 function drupal-write {
     if [ ! $1 ]; then

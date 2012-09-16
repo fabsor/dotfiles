@@ -3,7 +3,6 @@
 
 (require 'php-mode)
 (require 'w3m-load)
-(require 'geben)
 (require 'node-mode)
 (require 'sws-mode)
 (require 'jade-mode)
