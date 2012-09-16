@@ -62,15 +62,16 @@
 (global-set-key [f5] 'refresh-file)
 
 ;; Add PHP syntax checking.
+(add-hook 'find-file-hook 'flymake-find-file-hook)
 (add-hook 'php-mode-hook (lambda() (flymake-mode 1)))
 (add-hook 'drupal-mode-hook (lambda() (flymake-mode 1)))
 (define-key php-mode-map '[M-S-up] 'flymake-goto-prev-error)
 (define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)
 
 ;; Autocomplete
-;(require 'auto-complete-config)
-;(add-to-list 'ac-dictionary-directories "/home/fabsor/.emacs.d/ac-dict")
-;(ac-config-default)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/fabsor/.emacs.d/ac-dict")
+(ac-config-default)
 
 ;(add-hook 'php-mode-hook
 ;(lambda ()
