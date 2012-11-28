@@ -2,7 +2,6 @@
 (add-to-list 'load-path "~/.emacs.d/jade-mode")
 
 (require 'php-mode)
-(require 'w3m-load)
 (require 'node-mode)
 (require 'sws-mode)
 (require 'jade-mode)
