@@ -9,6 +9,7 @@
 (require 'flymake-cursor)
 (require 'drupal-mode)
 (require 'markdown-mode)
+(require 'symfony-mode)
 
 (load "node-mode")
 (load "drupal-mode")
