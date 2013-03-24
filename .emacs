@@ -1,8 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
 (add-to-list 'load-path "~/.emacs.d/jade-mode")
 
 (require 'php-mode)
 (require 'node-mode)
+(require 'coffee-mode)
 (require 'sws-mode)
 (require 'jade-mode)
 (require 'flymake)
@@ -31,6 +33,10 @@
 (add-to-list 'auto-mode-alist '("\\.js" . node-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.less" . css-mode))
+
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
 ;; Drupal-type extensions
 (add-to-list 'flymake-allowed-file-name-masks '("\\.module$" flymake-php-init))
@@ -77,3 +83,35 @@
 ; (require 'php-completion)
 ; (php-completion-mode t)
 ; (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)))
+
+(defun coffee-custom ()
+  "coffee-mode-hook"
+  (set (make-local-variable 'tab-width) 2))
+
+(add-hook 'coffee-mode-hook
+          '(lambda() (coffee-custom)))
+
+(when (load "flymake" t)
+  (defun flymake-jslint-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		              'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "jslint" (list "--terse" "--indent=2" "--nomen=true" local-file))))
+
+  (setq flymake-err-line-patterns
+	(cons '("^\\(.*\\)(\\([[:digit:]]+\\)):\\(.*\\)$"
+		1 2 nil 3)
+	            flymake-err-line-patterns))
+
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.js\\'" flymake-jslint-init))
+
+  (require 'flymake-cursor)
+)
+
+(add-hook 'js2-mode-hook
+	    (lambda ()
+      (flymake-mode 1)
+      (define-key js2-mode-map "\C-c\C-n" 'flymake-goto-next-error)))
