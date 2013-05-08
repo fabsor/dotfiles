@@ -1,15 +1,16 @@
 (add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/coffee-mode")
-(add-to-list 'load-path "~/.emacs.d/jade-mode")
+
+;; Package management.
+(require 'package)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
 
 (require 'php-mode)
 (require 'node-mode)
-(require 'coffee-mode)
-(require 'sws-mode)
-(require 'jade-mode)
+(require 'drupal-mode)
 (require 'flymake)
 (require 'flymake-cursor)
-(require 'drupal-mode)
 (require 'markdown-mode)
 (require 'symfony-mode)
 
@@ -33,9 +34,9 @@
 (add-to-list 'auto-mode-alist '("\\.js" . node-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.less" . css-mode))
 
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("\\.less$" . css-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
 ;; Drupal-type extensions
@@ -55,6 +56,7 @@
 ;; Use spaces by default.
 (setq indent-tabs-mode nil)
 (setq tab-width 2)
+(setq css-indent-offset 2)
 
 ;; Show line and column number.
 (setq line-number-mode t)
@@ -66,6 +68,7 @@
   (revert-buffer t t t))
 
 (global-set-key [f5] 'refresh-file)
+(global-set-key (kbd "C-x C-g") 'helm-locate)
 
 ;; Add PHP syntax checking.
 (add-hook 'find-file-hook 'flymake-find-file-hook)
@@ -91,6 +94,10 @@
 
 (add-hook 'coffee-mode-hook
           '(lambda() (coffee-custom)))
+
+
+(require 'flymake-coffee)
+(add-hook 'coffee-mode-hook 'flymake-coffee-load)
 
 (when (load "flymake" t)
   (defun flymake-jslint-init ()
@@ -122,13 +129,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(scroll-bar-mode nil))
+ '(less-css-compile-at-save t)
+ '(less-css-lessc-options (quote ("-rp ../components/bootstrap/less/")))
+ '(scroll-bar-mode nil)
+ '(shell-switcher-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "Droid Sans Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#2B2B2B" :foreground "#A9B7C6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "Droid Sans Mono"))))
  '(cursor ((t (:background "orange"))))
+ '(error ((t (:foreground "forest green" :weight bold))))
+ '(font-lock-builtin-face ((t (:foreground "red"))))
  '(font-lock-keyword-face ((t (:foreground "red"))))
- '(font-lock-variable-name-face ((t (:foreground "OrangeRed1")))))
+ '(font-lock-variable-name-face ((t (:foreground "OrangeRed1"))))
+ '(variable-pitch ((t (:background "dark red" :family "Sans Serif")))))
