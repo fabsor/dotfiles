@@ -129,7 +129,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-enabled-themes (quote (tango-dark)))
  '(less-css-compile-at-save t)
  '(less-css-lessc-options (quote ("-rp ../components/bootstrap/less/")))
  '(scroll-bar-mode nil)
@@ -140,4 +139,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :background "#2B2B2B" :foreground "#A9B7C6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "Droid Sans Mono"))))
+ '(cursor ((t (:background "orange"))))
+ '(error ((t (:foreground "forest green" :weight bold))))
+ '(font-lock-builtin-face ((t (:foreground "red"))))
+ '(font-lock-keyword-face ((t (:foreground "red"))))
+ '(font-lock-variable-name-face ((t (:foreground "OrangeRed1"))))
+ '(variable-pitch ((t (:background "dark red" :family "Sans Serif")))))

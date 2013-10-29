@@ -3,3 +3,5 @@
 	email = fabian@sorqvist.nu
 [color]
 	ui = auto
+[push]
+	default = simple
