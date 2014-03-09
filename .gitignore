@@ -13,4 +13,5 @@
 !bin/*
 !bin/z
 !bin/z/*
+!.zshrc
 .patch
