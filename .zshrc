@@ -22,6 +22,9 @@ alias gitdrupal="echo /test/${1}.git"
 alias drupalcs="phpcs --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme,css"
 alias emacsclient="emacsclient -n -a /usr/bin/emacs"
 alias emacs="emacsclient"
+alias dc="docker-compose"
+alias dw="docker-compose run web"
+alias dwm="docker-compose run web ./manage.py"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -52,7 +55,7 @@ alias emacs="emacsclient"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git django ubuntu)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,5 +77,7 @@ function drupal-clone {
     git clone --branch $2 "fabsor@git.drupal.org:project/$1.git"
 }
 
+export ANDROID_HOME=$HOME/apps/android-sdk-linux
+
 # Customize to your needs...
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin
