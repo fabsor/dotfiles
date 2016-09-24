@@ -23,8 +23,9 @@ alias drupalcs="phpcs --standard=DrupalCodingStandard --extensions=php,module,in
 alias emacsclient="emacsclient -n -a /usr/bin/emacs"
 alias emacs="emacsclient"
 alias dc="docker-compose"
-alias dw="docker-compose run web"
-alias dwm="docker-compose run web ./manage.py"
+alias dw="docker-compose exec web"
+alias dwm="docker-compose exec web ./manage.py"
+alias me="./manage.py"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
