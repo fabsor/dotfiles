@@ -22,6 +22,8 @@ alias gitdrupal="echo /test/${1}.git"
 alias drupalcs="phpcs --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme,css"
 alias emacsclient="emacsclient -n -a /usr/bin/emacs"
 alias emacs="emacsclient"
+alias emacsserver="/usr/bin/emacs -nw"
+alias emacsproject="emacsclient -l setup.sh"
 alias dc="docker-compose"
 alias dw="docker-compose exec web"
 alias dwm="docker-compose exec web ./manage.py"
@@ -79,6 +81,7 @@ function drupal-clone {
 }
 
 export ANDROID_HOME=$HOME/apps/android-sdk-linux
+export EDITOR=/usr/bin/vim
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin
