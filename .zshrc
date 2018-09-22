@@ -80,6 +80,7 @@ function drupal-clone {
     git clone --branch $2 "fabsor@git.drupal.org:project/$1.git"
 }
 
+export TERM=xterm-256color
 export ANDROID_HOME=$HOME/apps/android-sdk-linux
 export EDITOR=/usr/bin/vim
 
