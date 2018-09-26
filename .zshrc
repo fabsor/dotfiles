@@ -28,6 +28,7 @@ alias dc="docker-compose"
 alias dw="docker-compose exec web"
 alias dwm="docker-compose exec web ./manage.py"
 alias me="./manage.py"
+alias dockerkill="docker stop \$(docker ps -a -q)"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
