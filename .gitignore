@@ -10,4 +10,5 @@
 !bin/z/*
 !.zshrc
 !.vimrc
+!.vim-setup.sh
 .patch
