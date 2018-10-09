@@ -32,6 +32,7 @@ alias dc="docker-compose"
 alias dw="docker-compose exec web"
 alias dwm="docker-compose exec web ./manage.py"
 alias me="./manage.py"
+alias dockerkill="docker stop \$(docker ps -a -q)"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -90,5 +91,5 @@ export EDITOR=/usr/bin/vim
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin
-export WORKON_HOME=~/.virtualenvs
+
 
