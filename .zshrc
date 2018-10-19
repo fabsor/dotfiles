@@ -33,7 +33,7 @@ alias dw="docker-compose exec web"
 alias dwm="docker-compose exec web ./manage.py"
 alias me="./manage.py"
 alias dockerkill="docker stop \$(docker ps -a -q)"
-
+alias intertunnel="ssh -L 8443:localhost:443 a-testhaproxy1"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -58,7 +58,7 @@ alias dockerkill="docker stop \$(docker ps -a -q)"
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -91,5 +91,3 @@ export EDITOR=/usr/bin/vim
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin
-
-
