@@ -19,6 +19,8 @@ Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'ianks/vim-tsx'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -26,3 +28,4 @@ filetype plugin indent on    " required
 set expandtab
 set tabstop=2
 set shiftwidth=2
+syntax on
