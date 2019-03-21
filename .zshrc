@@ -71,6 +71,11 @@ if [ -f ~/bin/z/z.sh ]; then
     source ~/bin/z/z.sh
 fi
 
+function fix-trackpad {
+    echo -n "none" | sudo tee /sys/bus/serio/devices/serio1/drvctl
+    echo -n "reconnect" | sudo tee /sys/bus/serio/devices/serio1/drvctl
+}
+
 function drupal-write {
     if [ ! $1 ]; then
 	echo "You must specify the project name"
@@ -90,4 +95,4 @@ export ANDROID_HOME=$HOME/apps/android-sdk-linux
 export EDITOR=/usr/bin/vim
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin:$HOME/.config/composer/vendor/bi:$HOME/.config/composer/vendor/bin
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.composer/vendor/bin:$HOME/.config/composer/vendor/bi:$HOME/.config/composer/vendor/bin:$HOME/.local/bin
